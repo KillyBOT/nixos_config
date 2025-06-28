@@ -41,8 +41,7 @@
     # Accessed through `nixos-rebuild --flake .#hostname`
     # TODO: Add more hosts
     nixosConfigurations = {
-      # T480s
-      leyndell = nixpkgs.lib.nixosSystem {
+      newlondo = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # The main configuration file
         modules = [./nixos/configuration.nix];
@@ -53,7 +52,7 @@
     # Accessed through `home-manager --flake .#username@hostname`
     # TODO: Add more users
     homeConfigurations = {
-      "frampt@leyndell" = home-manager.lib.homeManagerConfiguration {
+      "frampt@newlondo" = home-manager.lib.homeManagerConfiguration {
         # home-manager needs a pkgs instance
         # TODO: Allow for different systems
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
