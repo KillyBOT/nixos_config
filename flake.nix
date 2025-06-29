@@ -24,9 +24,6 @@
       "aarch64-linux"
     ];
 
-    username = "frampt";
-
-    # forAllHosts = nixpkgs.lib.genAttrs hosts;
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     # # Custom packages
@@ -47,7 +44,6 @@
 
     # Exported modules
     nixosModules = import ./modules/nixos;
-
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
@@ -55,16 +51,39 @@
     nixosConfigurations = import ./hosts inputs;
 
     # home-manager configuration entrypoint
-    # Accessed through `home-manager --flake .#username@hostname`
-    # TODO: Add more users
+    # Accessed through `home-manager --flake .#username`
+    # For some reason, my default.nix is not working, so I have to do this manually.
+    # TODO: Fix users/default.nix, and uncomment the following:
+    # homeConfigurations = import ./users inputs;
     homeConfigurations = {
-      "frampt@newlondo" = home-manager.lib.homeManagerConfiguration {
+      "frampt" = home-manager.lib.homeManagerConfiguration {
         # home-manager needs a pkgs instance
         # TODO: Allow for different systems
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/home.nix];
+        modules = [
+          {
+            home.username = "frampt";
+            home.homeDirectory = "/home/frampt";
+            home.stateVersion = "25.05";
+          }
+          ./users/frampt/home.nix
+        ];
       };
     };
+
+    # nixpkgs settings
+    # nixpkgs = {
+    #   overlays = [
+    #     outputs.overlays.additions
+    #     outputs.overlays.modifications
+    #     outputs.overlays.unstable-packages
+    #   ];
+    #
+    #   # Configure nixpkgs
+    #   config = {
+    #     allowUnfree = true;
+    #   };
+    # };
   };
 }

@@ -37,7 +37,6 @@
       };
     };
 in
-  # Add
   nixpkgs.lib.foldl' (configs: host:
     configs
     // {
