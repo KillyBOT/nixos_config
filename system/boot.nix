@@ -9,7 +9,5 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    # Use the latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 }

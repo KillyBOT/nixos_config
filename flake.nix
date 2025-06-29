@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,33 +21,38 @@
     # Supported systems, more will come later
     systems = [
       "x86_64-linux"
+      "aarch64-linux"
     ];
 
+    username = "frampt";
+
+    # forAllHosts = nixpkgs.lib.genAttrs hosts;
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # Custom packages
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # # Custom packages
+    packages = forAllSystems (
+      system: import ./pkgs nixpkgs.legacyPackages.${system}
+    );
 
     # Formatter
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        pkgs.alejandra
+    );
 
     # Custom packages/modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
 
     # Exported modules
     nixosModules = import ./modules/nixos;
+
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
     # Accessed through `nixos-rebuild --flake .#hostname`
-    # TODO: Add more hosts
-    nixosConfigurations = {
-      newlondo = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        # The main configuration file
-        modules = [./nixos/configuration.nix];
-      };
-    };
+    nixosConfigurations = import ./hosts inputs;
 
     # home-manager configuration entrypoint
     # Accessed through `home-manager --flake .#username@hostname`

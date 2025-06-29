@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   # I don't use pulseaudio
   services.pulseaudio.enable = false;
-  # Look this up later lol
-  security.rtkit.enable = true;
   # I use pipewire
   services.pipewire = {
     enable = true;
@@ -10,7 +8,7 @@
     alsa = {
       enable = true;
       # Not sure exactly what this does
-      # support32Bit = true;
+      support32Bit = true;
     };
 
     # Pulseaudio support
@@ -19,12 +17,15 @@
     jack.enable = true;
   };
 
-  hardware = {
-    # Bluetooth support
-    bluetooth = {
-      enable = true;
-      # Don't power on by default
-      powerOnBoot = false;
-    };
-  };
+  # Look this up later lol
+  security.rtkit.enable = true;
+
+  # hardware = {
+  #   # Bluetooth support
+  #   bluetooth = {
+  #     enable = true;
+  #     # Don't power on by default
+  #     powerOnBoot = false;
+  #   };
+  # };
 }

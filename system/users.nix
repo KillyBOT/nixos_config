@@ -19,11 +19,11 @@
         extraGroups = [
           "networkmanager"
           "wheel"
-          "audio"
-          "video"
-          "input"
-          "power"
-          "nix"
+          # "audio"
+          # "video"
+          # "input"
+          # "power"
+          # "nix"
         ];
       };
     };
