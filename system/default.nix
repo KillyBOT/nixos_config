@@ -4,7 +4,6 @@
     ./bluetooth.nix
     ./boot.nix
     ./env.nix
-    ./kde.nix
     ./kernel.nix
     ./net.nix
     ./nix.nix
