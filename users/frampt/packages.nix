@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # TODO: Should I set this globally?
   nixpkgs.config.allowUnfree = true;
 
@@ -58,13 +62,18 @@
     wget # Get things from the network
 
     # Coding
-    clang # gcc but better
+    clang # gcc but better, should I give it priority?
     cmake # `cmake`; Make but "better"
-    gcc # `gcc`; C compiler. Why is this not installed to begin with?
+    (lib.hiPrio gcc) # `gcc`; C compiler. Why is this not installed to begin with?
     go # C but better, but also worse
     gnumake # `make`; Again, why is this not included by default?
     python314 # Python 3.14
     rustup # Rust manager
+
+    # WM stuff
+    libnotify
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
 
     # Misc.
     cbonsai # ASCII bonsai trees

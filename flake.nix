@@ -49,33 +49,17 @@
 
     # Exported modules
     nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
+    homeModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Accessed through `nixos-rebuild --flake .#hostname`
+    # Accessed through `nixos-rebuild switch --flake .#hostname`
     nixosConfigurations = import ./hosts inputs;
 
     # home-manager configuration entrypoint
-    # Accessed through `home-manager --flake .#username`
+    # Accessed through `home-manager switch --flake .#username`
     # For some reason, my default.nix is not working, so I have to do this manually.
     # TODO: Fix users/default.nix, and uncomment the following:
-    # homeConfigurations = import ./users inputs;
-    homeConfigurations = {
-      "frampt" = home-manager.lib.homeManagerConfiguration {
-        # home-manager needs a pkgs instance
-        # TODO: Allow for different systems
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          {
-            home.username = "frampt";
-            home.homeDirectory = "/home/frampt";
-            home.stateVersion = "25.05";
-          }
-          ./users/frampt/home.nix
-        ];
-      };
-    };
+    homeConfigurations = import ./users inputs;
 
     # nixpkgs settings
     # nixpkgs = {

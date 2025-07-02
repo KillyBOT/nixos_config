@@ -8,12 +8,13 @@
 
   home.packages = with pkgs; [
     hack-font
+    nerd-fonts.hack
     noto-fonts
+    nerd-fonts.noto
     noto-fonts-lgc-plus
     noto-fonts-emoji
-    powerline-fonts
-    powerline-symbols
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    # powerline-fonts
+    # powerline-symbols
   ];
 
   stylix = {
@@ -38,7 +39,7 @@
 
       monospace = {
         name = "Hack";
-        package = pkgs.hack-font;
+        package = pkgs.nerd-fonts.hack;
       };
 
       sansSerif = {
