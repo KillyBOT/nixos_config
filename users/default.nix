@@ -8,7 +8,7 @@
 
   users = [
     {
-      username = "newlondo";
+      username = "frampt";
       # TODO: See if there's a better way to define this
       system = "x86_64-linux";
       stateVersion = "25.05";

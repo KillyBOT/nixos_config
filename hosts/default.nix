@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  home-manager,
   self,
   ...
 }: let
@@ -10,6 +11,8 @@
       hostname = "newlondo";
       system = "x86_64-linux";
       stateVersion = "25.05";
+      # TODO: Support multiple users
+      username = "frampt";
     }
   ];
 
@@ -17,6 +20,7 @@
     hostname,
     system,
     stateVersion,
+    username,
   }:
     nixpkgs.lib.nixosSystem {
       system = system;
@@ -27,10 +31,33 @@
           nixpkgs.hostPlatform = system;
           system.stateVersion = stateVersion;
         }
+        # Add the host's configuration
         ./${hostname}/configuration.nix
 
         # Also use the system module
         ../system
+
+        # home-manager.nixosModules.home-manager
+        # {
+        #   home-manager = {
+        #     useGlobalPkgs = true;
+        #     useUserPackages = true;
+        #
+        #     users.${username} = import ../users/${username}/home.nix;
+        #
+        #     extraSpecialArgs = {inherit inputs outputs;};
+        #   };
+        # }
+
+        # nixpkgs.lib.genAttrs users (
+        #   user:
+        #     home-manager.nixosModules.home-manager {
+        #       home-manager.useGlobalPkgs = true;
+        #       home-manager.userUserPackages = true;
+        #
+        #       home-manager.users.${user} = import ../users/${user}/home.nix
+        #     };
+        # )
       ];
       specialArgs = {
         inherit inputs outputs;
@@ -41,7 +68,7 @@ in
     configs
     // {
       "${host.hostname}" = mkHost {
-        inherit (host) hostname system stateVersion;
+        inherit (host) hostname system stateVersion username;
       };
     }) {}
   hosts

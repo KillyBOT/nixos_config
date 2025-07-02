@@ -7,7 +7,6 @@
     # Along with ALSA support
     alsa = {
       enable = true;
-      # Not sure exactly what this does
       support32Bit = true;
     };
 
