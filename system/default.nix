@@ -4,6 +4,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./env.nix
+    ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
     ./i18n.nix

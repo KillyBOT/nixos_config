@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     vim
-    neovim
+    lm_sensors
   ];
 }

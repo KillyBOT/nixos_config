@@ -31,7 +31,7 @@
       monitor = ",1920x1080@60,auto,1";
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
-      "$menu" = "wofi";
+      "$menu" = "rofi";
 
       general = {
         allow_tearing = false;

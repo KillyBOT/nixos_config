@@ -14,6 +14,7 @@
     mpv # Video player
     obs-studio # FOSS video recorder
     obsidian # Note-taking software
+    pavucontrol # Volume control
     prismlauncher # Minecraft
     signal-desktop # Very legal messaging app
 
