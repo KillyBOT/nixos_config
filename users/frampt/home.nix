@@ -2,7 +2,7 @@
   imports = [
     ./hyprland
     ./waybar
-    ./wofi
+    ./rofi
     ./bat.nix
     ./git.nix
     ./htop.nix

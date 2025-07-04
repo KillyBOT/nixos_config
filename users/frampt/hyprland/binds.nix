@@ -6,8 +6,8 @@
       "$mainMod CTRL, C, killactive," # Kill current
       "$mainMod CTRL, Q, exit," # Quit Hyprland
       "$mainMod,       F, togglefloating," # Toggle floating
-      "$mainMod,       D, exec, $menu --show drun" # Wofi
-      "$mainMod,       L, exec, loginctl lock-session" # Lock scren
+      "$mainMod,       D, exec, $menu -show drun" # Rofi
+      "$mainMod,       L, exec, loginctl lock-session" # Lock screen
 
       # Moving windows
       "$mainMod SHIFT, left,  swapwindow, l"
