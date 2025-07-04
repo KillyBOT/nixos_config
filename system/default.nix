@@ -7,10 +7,9 @@
     ./home-manager.nix
     ./hyprland.nix
     ./i18n.nix
-    # ./kde.nix
     ./kernel.nix
-    # ./ly.nix
     ./net.nix
+    ./nh.nix
     ./nix.nix
     ./printing.nix
     ./timezone.nix
