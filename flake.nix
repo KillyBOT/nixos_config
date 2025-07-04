@@ -10,8 +10,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nvf = {
+    #   url = "github:notashelf/nvf";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -19,10 +33,8 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
-    inherit (self) outputs;
     # Supported systems, more will come later
     systems = [
       "x86_64-linux"
@@ -57,8 +69,6 @@
 
     # home-manager configuration entrypoint
     # Accessed through `home-manager switch --flake .#username`
-    # For some reason, my default.nix is not working, so I have to do this manually.
-    # TODO: Fix users/default.nix, and uncomment the following:
     homeConfigurations = import ./users inputs;
 
     # nixpkgs settings

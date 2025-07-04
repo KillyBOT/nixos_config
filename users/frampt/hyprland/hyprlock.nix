@@ -27,17 +27,17 @@
         }
       ];
 
-      input-field = [
-        {
-          size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-
-          outline_thickness = 5;
-          shadow_passes = 1;
-        }
-      ];
+      # input-field = [
+      #   {
+      #     size = "200, 50";
+      #     position = "0, -80";
+      #     monitor = "";
+      #     dots_center = true;
+      #
+      #     outline_thickness = 5;
+      #     shadow_passes = 1;
+      #   }
+      # ];
     };
   };
 }
