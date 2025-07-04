@@ -8,6 +8,7 @@
     ./htop.nix
     ./kitty.nix
     ./lazygit.nix
+    ./librewolf.nix
     ./neovim.nix
     ./packages.nix
     ./qt.nix
