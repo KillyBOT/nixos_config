@@ -18,13 +18,4 @@
 
   # Look this up later lol
   security.rtkit.enable = true;
-
-  # hardware = {
-  #   # Bluetooth support
-  #   bluetooth = {
-  #     enable = true;
-  #     # Don't power on by default
-  #     powerOnBoot = false;
-  #   };
-  # };
 }
