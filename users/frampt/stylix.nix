@@ -23,6 +23,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
 
     targets = {
+      nixvim.enable = false; # We can manually turn on Gruvbox
       firefox.profileNames = ["user"];
     };
 
