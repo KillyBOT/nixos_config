@@ -1,6 +1,5 @@
 {
   nixpkgs,
-  home-manager,
   self,
   ...
 }: let

@@ -39,7 +39,7 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # # Custom packages
+    # # Custom packages + nixpkgs packages
     packages = forAllSystems (
       system: import ./pkgs nixpkgs.legacyPackages.${system}
     );

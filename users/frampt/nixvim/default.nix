@@ -1,9 +1,10 @@
 {inputs, ...}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./keymaps
+    ./lspconfig
     ./plugins
     ./autocmds.nix
-    ./keymaps.nix
     ./options.nix
   ];
 
