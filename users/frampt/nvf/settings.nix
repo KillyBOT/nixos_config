@@ -5,14 +5,13 @@
 
     searchCase = "smart";
 
-    preventJunkFiles = true;
-
     undoFile.enable = true;
+    preventJunkFiles = true;
 
     options = rec {
       cursorlineopt = "both";
       shiftwidth = 2;
-      tabwidth = shiftwidth;
+      tabstop = shiftwidth;
       softtabstop = shiftwidth;
     };
     lineNumberMode = "relNumber";

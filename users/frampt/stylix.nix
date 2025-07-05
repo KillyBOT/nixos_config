@@ -25,6 +25,7 @@
     # We'll manually customize these
     targets = {
       # nvf.enable = false;
+      nixvim.enable = false;
       # waybar.enable = false;
       # wofi.enable = false;
       # hyprland.enable = false;

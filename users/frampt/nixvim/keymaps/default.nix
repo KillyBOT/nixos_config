@@ -35,6 +35,32 @@
         action = "<C-w><C-l>";
         options.desc = "Move focus right";
       }
+
+      # <S-hl> for navigating buffers ([b and ]b as well)
+      {
+        mode = "n";
+        key = "<S-h>";
+        action = "<cmd>bprev<CR>";
+        options.desc = "buffer";
+      }
+      {
+        mode = "n";
+        key = "<S-l>";
+        action = "<cmd>bnext<CR>";
+        options.desc = "buffer";
+      }
+      {
+        mode = "n";
+        key = "[b";
+        action = "<cmd>bprev<CR>";
+        options.desc = "buffer";
+      }
+      {
+        mode = "n";
+        key = "]b";
+        action = "<cmd>bnext<CR>";
+        options.desc = "buffer";
+      }
     ];
 
     # This is technically a plugin, but I'll put it here
