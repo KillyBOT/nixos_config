@@ -12,50 +12,59 @@
     # Wayland copy
     clipboard.providers.wl-copy.enable = true;
 
-    opts = {
-      # Relative numbers
-      number = true;
-      relativenumber = true;
+    opts = rec {
+      # [[ General ]]
+      mouse = "a"; # Enable mouse mode
+      completeopt = "menu,menuone,noselect"; # Dunno what this does
+      confirm = true; # Ask for confirmation
 
-      # Enable mouse mode
-      mouse = "a";
+      # [[ Windows/Buffers ]]
+      splitright = true; # Split only right...
+      splitbelow = true; # ...or down
+      splitkeep = "screen";
 
-      # Statusline already shows mode
-      showmode = false;
+      # [[ Search ]]
+      hlsearch = true; # Highlight searches
+      inccommand = "nosplit"; # Show substitutions visually
+      grepprg = "rg --vimgrep"; # Use ripgrep
+      grepformat = "%f:%l:%c:%m";
 
-      # Turn on break indents
-      breakindent = true;
-
-      # Save undo history
-      undofile = true;
-
-      # Use smart case for searching (no case unless \C or >1 capitals in search)
-      ignorecase = true;
-      smartcase = true;
-
-      signcolumn = "yes";
+      ignorecase = true; # Don't use case
+      smartcase = true; # Only use case if >1 capitals or \C
 
       # Short update time
       updatetime = 200;
       # Display which-key sooner
       timeoutlen = 300;
 
-      # Split right, then down?
-      splitright = true;
-      splitbelow = true;
-      splitkeep = "screen";
+      # [[ Visual ]]
+      number = true; # Show numbers
+      relativenumber = true; # Show relative numbers
+      list = true; # Show invisible characters:
+      listchars.__raw = "{tab = '» ', trail = '·', nbsp = '␣' }";
+      cursorline = true; # Show current cursor line
+      signcolumn = "yes"; # Show signcolumn
+      scrolloff = 8; # Number of lines above/below cursor
+      termguicolors = true; # Truecolor support
+      showmode = false; # Statusline already shows mode
+      ruler = false; # Disable the ruler
 
-      # Preview substitutions
-      inccommand = "split";
+      linebreak = true; # Idk what this does
+      wrap = false; # Disable line wrapping by default
+      conceallevel = 2; # Hide * markup for bold and italics, but not markers with substitutions
 
-      # Number of lines above and below the cursor
-      scrolloff = 8;
+      # [[ Indentation ]]
+      expandtab = true; # Spaces over tabs!
+      smartindent = true; # Auto-indent
+      shiftround = true; # Round indents
+      shiftwidth = 2; # 2 spaces per tab
+      tabstop = shiftwidth; # Spaces per tab visually
+      softtabstop = shiftwidth; # Spaces per tab editing
+      breakindent = true; # Use break indents
 
-      # Ask for confirmation
-      confirm = true;
-
-      # Highlight searches
-      hlsearch = true;
+      # [[ Editing ]]
+      undofile = true; # Save undo history
+      undolevels = 16384; # Undo levels
     };
   };
 }
