@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./snacks.nix
+    ./snacks
     ./which-key.nix
   ];
   programs.nixvim = {
