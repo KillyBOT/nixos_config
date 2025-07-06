@@ -1,10 +1,10 @@
 {...}: {
   programs.nixvim.plugins.yanky = {
     enable = true;
-    # lazyLoad = {
-    #   enable = true;
-    #   settings.cmd = ["YankyClearHistory" "YankyRingHistory"];
-    # };
+
+    lazyLoad.settings = {
+      cmd = ["YankyClearHistory" "YankyRingHistory"];
+    };
 
     settings = {
       highlight = {

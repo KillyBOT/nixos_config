@@ -1,5 +1,8 @@
 {...}: {
   programs.nixvim.plugins.inc-rename = {
-    enabled = true;
+    enable = true;
+    lazyLoad.settings = {
+      cmd = "IncRename";
+    };
   };
 }

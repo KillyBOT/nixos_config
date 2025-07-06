@@ -8,6 +8,11 @@
 
     mini-pairs = {
       enable = true;
+
+      lazyLoad.settings = {
+        event = "InsertEnter";
+      };
+
       settings = {
         command = true;
         insert = true;
