@@ -22,14 +22,8 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
 
-    # We'll manually customize these
     targets = {
-      neovim.enable = false;
-      waybar.enable = false;
-      wofi.enable = false;
-      hyprland.enable = false;
-      hyprlock.enable = false;
-      librewolf.enable = false;
+      firefox.profileNames = ["user"];
     };
 
     fonts = {
