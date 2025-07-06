@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./hyprland
+    ./nvf
     ./bat.nix
     # ./fuzzel.nix
     ./git.nix
@@ -8,7 +9,6 @@
     ./kitty.nix
     ./lazygit.nix
     ./librewolf.nix
-    ./neovim.nix
     ./packages.nix
     ./qt.nix
     ./rofi.nix
