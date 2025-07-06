@@ -1,15 +1,22 @@
 {...}: {
   imports = [
     ./snacks
+    ./buffer.nix
+    ./file.nix
     ./which-key.nix
   ];
   programs.nixvim = {
     keymaps = [
-      # ESC turns off highlights
+      # [[ General ]]
       {
         mode = "n";
         key = "<Esc>";
         action = "<cmd>nohlsearch<CR>";
+      }
+      {
+        mode = ["n" "v"];
+        key = "<S-u>";
+        action = "<C-r>";
       }
 
       # [[ Buffers/Windows ]]
@@ -40,30 +47,18 @@
         options.desc = "Move focus right";
       }
 
-      # <S-hl> for navigating buffers ([b and ]b as well)
+      # [[ Editing ]]
+
+      # Keep selection during visual indentation
       {
-        mode = "n";
-        key = "<S-h>";
-        action = "<cmd>bprev<CR>";
-        options.desc = "buffer";
+        mode = "v";
+        key = "<";
+        action = "<gv";
       }
       {
-        mode = "n";
-        key = "<S-l>";
-        action = "<cmd>bnext<CR>";
-        options.desc = "buffer";
-      }
-      {
-        mode = "n";
-        key = "[b";
-        action = "<cmd>bprev<CR>";
-        options.desc = "buffer";
-      }
-      {
-        mode = "n";
-        key = "]b";
-        action = "<cmd>bnext<CR>";
-        options.desc = "buffer";
+        mode = "v";
+        key = ">";
+        action = ">gv";
       }
     ];
   };
