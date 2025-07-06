@@ -81,6 +81,6 @@
     cmatrix # 1337 hax0r
     cowsay
     figlet # Pretty text
-    neofetch # The only necessary package tbh
+    microfetch # The only necessary package tbh
   ];
 }
