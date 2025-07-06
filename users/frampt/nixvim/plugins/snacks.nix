@@ -2,8 +2,12 @@
   programs.nixvim = {
     plugins.snacks = {
       enable = true;
-
       autoLoad = true;
+
+      lazyLoad.settings = {
+        lazy = false; # Do not lazy load!
+        priority = 1000; # Load before everything else
+      };
 
       settings = {
         bigfile.enabled = true;

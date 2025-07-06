@@ -2,6 +2,11 @@
   # This is technically a plugin, but it makes more sense to place it here
   programs.nixvim.plugins.which-key = {
     enable = true;
+
+    lazyLoad.settings = {
+      event = "VimEnter";
+    };
+
     settings = {
       delay = 0;
       spec = [

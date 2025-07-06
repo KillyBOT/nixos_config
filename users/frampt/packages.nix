@@ -68,6 +68,8 @@
     (lib.hiPrio gcc) # `gcc`; C compiler. Why is this not installed to begin with?
     go # C but better, but also worse
     gnumake # `make`; Again, why is this not included by default?
+    # lua # Lua
+    luajit # Lua but fast
     python314 # Python 3.14
     rustup # Rust manager
 
