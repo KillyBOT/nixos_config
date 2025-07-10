@@ -12,7 +12,6 @@
     ./neovim.nix
     ./packages.nix
     ./qt.nix
-    ./starship.nix
     ./stylix.nix
     ./systemd.nix
     ./tmux.nix
