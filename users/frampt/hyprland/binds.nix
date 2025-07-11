@@ -7,6 +7,7 @@
       "$mainMod CTRL SHIFT, Q, exit," # Quit Hyprland
       "$mainMod,       F, togglefloating," # Toggle floating
       "$mainMod,       D, exec, $menu -show drun" # Rofi
+      # "$mainMod,       D, exec, ${uwsmRun "$menu"}" # Fuzzel
       "$mainMod,       L, exec, loginctl lock-session" # Lock screen
 
       # Moving windows
