@@ -1,10 +1,9 @@
 {...}: {
   imports = [
-    ./fuzzel
     ./hyprland
-    ./waybar
     ./bat.nix
     ./fuzzel.nix
+    ./eww.nix
     ./git.nix
     ./htop.nix
     ./kitty.nix
@@ -18,6 +17,7 @@
     ./systemd.nix
     ./tmux.nix
     # ./wofi.nix
+    # ./waybar.nix
     ./zsh.nix
   ];
 }
