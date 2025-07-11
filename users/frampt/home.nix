@@ -1,8 +1,6 @@
 {...}: {
   imports = [
-    ./fuzzel
     ./hyprland
-    ./waybar
     ./bat.nix
     # ./fuzzel.nix
     ./git.nix
@@ -18,6 +16,7 @@
     ./systemd.nix
     ./tmux.nix
     # ./wofi.nix
+    ./waybar.nix
     ./zsh.nix
   ];
 }
