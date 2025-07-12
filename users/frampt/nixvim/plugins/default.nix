@@ -1,7 +1,7 @@
 {...}: {
   imports = [
+    ./blink-cmp.nix
     ./bufferline.nix
-    ./cmp.nix
     ./comment.nix
     ./dap.nix
     ./flash.nix
