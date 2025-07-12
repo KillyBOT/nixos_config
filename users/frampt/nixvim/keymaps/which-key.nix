@@ -73,7 +73,7 @@
           mode = ["n" "v"];
         }
         {
-          __unkeyed-1 = "<leader>";
+          __unkeyed-1 = "]";
           group = "Next";
           mode = ["n" "v"];
         }

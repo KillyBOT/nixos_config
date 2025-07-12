@@ -4,6 +4,7 @@
     ./git.nix
     ./lsp.nix
     ./picker.nix
+    ./toggle.nix
   ];
   programs.nixvim.keymaps = [
     {
@@ -69,10 +70,16 @@
     }
 
     {
-      mode = "n";
-      key = "<C-/>";
+      mode = ["n" "t"];
+      key = "<c-/>";
       action = "<cmd>lua Snacks.terminal()<CR>";
       options.desc = "Terminal";
+    }
+    {
+      mode = ["n" "t"];
+      key = "<c-_>";
+      action = "<cmd>lua Snacks.terminal()<CR>";
+      options.desc = "which_key_ignore";
     }
   ];
 }

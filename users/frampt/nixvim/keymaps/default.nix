@@ -2,7 +2,10 @@
   imports = [
     ./snacks
     ./buffer.nix
+    ./blink-cmp.nix
     ./file.nix
+    ./lsp.nix
+    ./trouble.nix
     ./which-key.nix
   ];
   programs.nixvim = {

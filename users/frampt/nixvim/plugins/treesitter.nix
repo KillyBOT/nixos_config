@@ -1,6 +1,12 @@
 {...}: {
   programs.nixvim.plugins.treesitter = {
     enable = true;
+
+    lazyLoad.settings = {
+      # This may not be the best way to do it,
+      event = "VimEnter";
+    };
+
     settings = {
       auto_install = true;
       highlight.enable = true;
@@ -15,6 +21,7 @@
         "luap"
         "markdown"
         "markdown_inline"
+        "nix"
         "printf"
         "python"
         "query"

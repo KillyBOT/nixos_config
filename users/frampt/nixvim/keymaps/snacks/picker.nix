@@ -126,5 +126,12 @@
       action = "<cmd>lua Snacks.picker.search_history()<CR>";
       options.desc = "Search history";
     }
+
+    {
+      mode = "n";
+      key = "<leader>uC";
+      action = "<cmd>lua Snacks.picker.colorschemes()<CR>";
+      options.desc = "[C]olorschemes";
+    }
   ];
 }
