@@ -4,7 +4,8 @@
     settings = {
       general = {
         disable_loading_bar = true;
-        hide_cursor = true;
+        immediate_render = true;
+        hide_cursor = false;
         no_fade_in = false;
       };
 
@@ -21,7 +22,7 @@
 
       backgroud = [
         {
-          path = "screenshot";
+          monitor = "";
           blur_passes = 3;
           blur_size = 8;
         }
