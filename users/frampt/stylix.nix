@@ -39,12 +39,12 @@
 
       sansSerif = {
         name = "Noto Sans";
-        package = pkgs.noto-fonts;
+        package = pkgs.nerd-fonts.noto;
       };
 
       serif = {
         name = "Noto Serif";
-        package = pkgs.noto-fonts;
+        package = pkgs.nerd-fonts.noto;
       };
 
       sizes = {
