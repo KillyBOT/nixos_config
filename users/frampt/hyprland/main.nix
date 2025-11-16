@@ -43,6 +43,9 @@
       input = {
         kb_layout = "us";
         kb_options = "ctrl:swapcaps";
+
+        # Natural scrolling
+        touchpad.natural_scroll = true;
       };
     };
   };

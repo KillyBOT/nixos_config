@@ -1,12 +1,13 @@
-{pkgs, ...}: {
+{...}: {
   wayland.windowManager.hyprland.settings = {
     bind = [
       # General
-      "$mainMod SHIFT, Return, exec, $terminal" # New terminal
-      "$mainMod CTRL, C, killactive," # Kill current
-      "$mainMod CTRL, Q, exit," # Quit Hyprland
+      "$mainMod CTRL, T, exec, $terminal" # New terminal
+      "$mainMod CTRL, Q, killactive," # Kill current window
+      "$mainMod CTRL SHIFT, Q, exit," # Quit Hyprland
       "$mainMod,       F, togglefloating," # Toggle floating
       "$mainMod,       D, exec, $menu -show drun" # Rofi
+      # "$mainMod,       D, exec, ${uwsmRun "$menu"}" # Fuzzel
       "$mainMod,       L, exec, loginctl lock-session" # Lock screen
 
       # Moving windows
@@ -44,6 +45,14 @@
       "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
       "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
       "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+    ];
+
+    # Media keys
+    bindel = [
+      ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
   };
 }
