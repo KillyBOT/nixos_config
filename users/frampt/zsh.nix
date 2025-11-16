@@ -15,7 +15,7 @@
       # TODO: Add more bindings
     };
 
-    history.size = 16384;
+    history.size = 65536;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
     oh-my-zsh = {
@@ -37,22 +37,11 @@
       # }
     ];
 
-    # Start tmux and uwsm if they are not already running
-    # UWSM is just to start Hyprland immediately
     initContent = let
-      initExtraFirst = lib.mkOrder 500 ''
+      initExtra = lib.mkOrder 1000 ''
         source ~/.p10k.zsh
       '';
-      initExtra = lib.mkOrder 1000 ''
-        if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
-          tmux attach-session -t default || tmux new-session -s default
-        fi
-
-        if uwsm check may-start > /dev/null && uwsm select; then
-          exec systemd-cat -t uwsm_start uwsm start default
-        fi
-      '';
     in
-      lib.mkMerge [initExtraFirst initExtra];
+      lib.mkMerge [initExtra];
   };
 }
