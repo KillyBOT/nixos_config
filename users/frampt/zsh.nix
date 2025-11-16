@@ -15,7 +15,7 @@
       # TODO: Add more bindings
     };
 
-    history.size = 16384;
+    history.size = 65536;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
     oh-my-zsh = {
